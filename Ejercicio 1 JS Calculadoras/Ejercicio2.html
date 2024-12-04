@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Simple</title>
+   <link rel="stylesheet" href="./css/ejercicio2.css">
+</head>
+<body>
+
+    <div class="calculator">
+        <label>Numero 1</label>
+        <input id="Numero1" type="number" />
+        <label>Numero 2</label>
+        <input id="Numero2" type="number" />
+        
+        <label>
+            <input type="checkbox" id="suma" /> Sumar
+        </label>
+        <label>
+            <input type="checkbox" id="resta" /> Restar
+        </label>
+        <label>
+            <input type="checkbox" id="multiplicacion" /> Multiplicar
+        </label>
+        <label>
+            <input type="checkbox" id="division" /> Dividir
+        </label>
+        
+        <button onclick="calcular()">Calcular</button>
+    </div>
+
+    <script>
+        function calcular() {
+            let Numero1 = document.getElementById("Numero1");
+            let Numero2 = document.getElementById("Numero2");
+            let resultado = "";
+            let res;
+
+            if (document.getElementById("suma").checked) {
+                res = Number(Numero1.value) + Number(Numero2.value);
+                resultado += "Suma: " + res + "\n";
+            }
+            if (document.getElementById("resta").checked) {
+                res = Number(Numero1.value) - Number(Numero2.value);
+                resultado += "Resta: " + res + "\n";
+            }
+            if (document.getElementById("multiplicacion").checked) {
+                res = Number(Numero1.value) * Number(Numero2.value);
+                resultado += "Multiplicación: " + res + "\n";
+            }
+            if (document.getElementById("division").checked) {
+                if (Number(Numero2.value) !== 0) {
+                    res = Number(Numero1.value) / Number(Numero2.value);
+                    resultado += "División: " + res + "\n";
+                }  
+            }
+
+            if (resultado === "") {
+                alert("Por favor, selecciona al menos una operación.");
+            } else {
+                alert(resultado);
+            }
+        }
+    </script>
+</body>
+</html>
